@@ -76,4 +76,53 @@ Elemento 1:
 
 
 
+### 🧪 Ejemplo básico de una unica fila
+
+```C
+#include <stdio.h>
+#include "SQL2JSON.h"
+#include "JSON.h"
+
+// Función para eliminar comillas de una cadena (si las tiene)
+char* quitar_comillas(char* str) {
+    if (str == NULL){
+      return NULL;  
+    } 
+    size_t len = strlen(str);
+    if (len >= 2 && str[0] == '"' && str[len-1] == '"') {
+        str[len-1] = '\0';  // Eliminar comilla final
+        return str + 1;      // Saltar comilla inicial
+    }
+    return str;
+}
+
+int main() {
+    // Configuración de conexión
+    char* conexion = "root:123456@tcp(192.100.1.210:3306)/test";
+    
+    // Consulta SQL con parámetros
+    char* query = "select now();";
+        
+    // Llamar a la función
+    char* json = SQLrun(conexion, query, 0, 0);
+    
+    // Analizar JSON
+    JsonResult resultado = ParseJSON(json);
+    
+    if (!resultado.is_valid) {
+        printf("Error: %s\n", resultado.error);
+        return 1;
+    }
+    
+    // Mostrar valores sin comillas
+    printf("now: %s\n", quitar_comillas(GetJSONValue(json, "now()").value));
+        
+    // Liberar memoria
+    FreeJsonResult(&resultado);
+    FreeString(json);
+    
+    return 0;
+}
+```
+
 ---
