@@ -142,12 +142,7 @@ int main() {
     
     // Analizar JSON
     JsonResult resultado = ParseJSON(json);
-    
-    if (!resultado.is_valid) {
-        printf("Error: %s\n", resultado.error);
-        return 1;
-    }
-    
+        
     // Mostrar valores sin comillas
     printf("now: %s\n", quitar_comillas(GetJSONValue(json, "now()").value));
         
