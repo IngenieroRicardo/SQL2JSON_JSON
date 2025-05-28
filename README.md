@@ -35,7 +35,6 @@ Elemento 1:
 ```
 
 
-
 ### Consulta SELECT simple
 
 ```C
@@ -49,6 +48,45 @@ Resultado JSON:
 
 Elemento 1:
   now(): 2025-05-28 16:22:53
+
+```
+
+
+### Consulta SELECT a tabla
+
+```C
+/main.bin "SELECT usuarios, mensajes FROM chat.mensajeria"
+Ejecutando consulta: SELECT usuarios, mensajes FROM chat.mensajeria
+
+Resultado JSON:
+[
+  {
+    "mensajes": "Hola",
+    "usuarios": "Ricardo"
+  },
+  {
+    "mensajes": "hola",
+    "usuarios": "yo"
+  },
+  {
+    "mensajes": "hola",
+    "usuarios": "mike"
+  }
+]
+
+Total de elementos: 3
+
+Elemento 1:
+  mensajes: Hola
+  usuarios: Ricardo
+
+Elemento 2:
+  mensajes: hola
+  usuarios: yo
+
+Elemento 3:
+  mensajes: hola
+  usuarios: mike
 
 ```
 
