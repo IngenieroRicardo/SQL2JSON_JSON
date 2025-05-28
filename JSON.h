@@ -93,6 +93,17 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
+#ifdef _WIN32 
+extern __declspec(dllexport) JsonResult ParseJSON(char* jsonStr);
+extern __declspec(dllexport) JsonResult GetJSONValue(char* jsonStr, char* key);
+extern __declspec(dllexport) JsonResult GetArrayLength(char* jsonStr);
+extern __declspec(dllexport) JsonResult GetArrayItem(char* jsonStr, GoInt index);
+extern __declspec(dllexport) void FreeJsonResult(JsonResult* result);
+extern __declspec(dllexport) JsonArrayResult GetJSONKeys(char* jsonStr);
+extern __declspec(dllexport) void FreeJsonArrayResult(JsonArrayResult* result);
+extern __declspec(dllexport) JsonResult GetJSONValueByPath(char* jsonStr, char* path);
+extern __declspec(dllexport) JsonArrayResult GetArrayItems(char* jsonStr);
+#else 
 extern JsonResult ParseJSON(char* jsonStr);
 extern JsonResult GetJSONValue(char* jsonStr, char* key);
 extern JsonResult GetArrayLength(char* jsonStr);
@@ -102,6 +113,7 @@ extern JsonArrayResult GetJSONKeys(char* jsonStr);
 extern void FreeJsonArrayResult(JsonArrayResult* result);
 extern JsonResult GetJSONValueByPath(char* jsonStr, char* path);
 extern JsonArrayResult GetArrayItems(char* jsonStr);
+#endif 
 
 #ifdef __cplusplus
 }

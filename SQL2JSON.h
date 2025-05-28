@@ -80,8 +80,13 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
+#ifdef _WIN32 
+extern __declspec(dllexport) char* SQLrun(char* conexion, char* query, char** args, int argCount);
+extern __declspec(dllexport) void FreeString(char* str);
+#else 
 extern char* SQLrun(char* conexion, char* query, char** args, int argCount);
 extern void FreeString(char* str);
+#endif
 
 #ifdef __cplusplus
 }
