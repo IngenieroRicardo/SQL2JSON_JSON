@@ -98,7 +98,7 @@ char* quitar_comillas(char* str) {
 
 int main() {
     // Configuración de conexión
-    char* conexion = "root:123456@tcp(192.100.1.210:3306)/test";
+    char* conexion = "root:123456@tcp(127.0.0.1:3306)/test";
     
     // Consulta SQL con parámetros
     char* query = "select now();";
