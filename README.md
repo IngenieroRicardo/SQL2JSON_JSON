@@ -120,7 +120,7 @@ Elemento 1:
 // Función para eliminar comillas de una cadena (si las tiene)
 char* quitar_comillas(char* str) {
     if (str == NULL){
-      return NULL;  
+      return "";  
     } 
     size_t len = strlen(str);
     if (len >= 2 && str[0] == '"' && str[len-1] == '"') {
