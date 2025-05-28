@@ -4,7 +4,7 @@ Ejemplo de uso de SQL2JSON y JSON para interactuar con bases de datos MySQL.
 
 ## Configuración
 
-La cadena de conexión se encuentra en la línea 84 de `main.c`:
+La cadena de conexión se encuentra en la línea 122 de `main.c`:
 ```c
 char* conexion = "root:123456@tcp(127.0.0.1:3306)/mysql";
 ```
