@@ -1,2 +1,2 @@
-# SQL2JSON_JSON
+# SQL2JSON + JSON
 Ejemplo usando SQL2JSON y JSON
