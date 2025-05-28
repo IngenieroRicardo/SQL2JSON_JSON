@@ -1,6 +1,13 @@
 # SQL2JSON + JSON
-Ejemplo usando SQL2JSON y JSON.
-String de conexion en Linea 84 main.c: `char* conexion = "root:123456@tcp(192.100.1.210:3306)/mysql";`
+
+Ejemplo de uso de SQL2JSON y JSON para interactuar con bases de datos MySQL.
+
+## Configuración
+
+La cadena de conexión se encuentra en la línea 84 de `main.c`:
+```c
+char* conexion = "root:123456@tcp(127.0.0.1:3306)/mysql";
+```
 
 
 ### 🛠️ Compilar
@@ -12,7 +19,7 @@ String de conexion en Linea 84 main.c: `char* conexion = "root:123456@tcp(192.10
 
 ---
 
-### Respuesta de ejecucion
+### Ejecución de comando DELETE
 
 ```bash
 ./main.bin "DELETE FROM chat.usuario"
@@ -29,7 +36,7 @@ Elemento 1:
 
 
 
-### Respuesta de consulta
+### Consulta SELECT simple
 
 ```C
 ./main.bin "SELECT now()"
@@ -51,7 +58,7 @@ Elemento 1:
 
 ---
 
-### Respuesta erronea
+### Manejo de errores
 
 ```C
 ./main.bin "SELECT funcion()"
