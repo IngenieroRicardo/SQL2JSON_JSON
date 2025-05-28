@@ -43,16 +43,12 @@ Elemento 1:
 Ejecutando consulta: SELECT now()
 
 Resultado JSON:
-[
-  {
-    "now()": "2025-05-28 13:50:42"
-  }
-]
-
-Total de elementos: 1
+{
+  "now()": "2025-05-28 16:22:53"
+}
 
 Elemento 1:
-  now(): 2025-05-28 13:50:42
+  now(): 2025-05-28 16:22:53
 
 ```
 
