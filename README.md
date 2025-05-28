@@ -110,7 +110,7 @@ Elemento 1:
 
 
 
-### 🧪 Ejemplo básico de una unica fila
+### 🧪 Ejemplo básico (consulta de una única fila)
 
 ```C
 #include <stdio.h>
