@@ -132,7 +132,7 @@ char* quitar_comillas(char* str) {
 
 int main() {
     // Configuración de conexión
-    char* conexion = "root:123456@tcp(127.0.0.1:3306)/test";
+    char* conexion = "root:123456@tcp(192.100.1.210:3306)/test";
     
     // Consulta SQL con parámetros
     char* query = "select now();";
@@ -140,14 +140,10 @@ int main() {
     // Llamar a la función
     char* json = SQLrun(conexion, query, 0, 0);
     
-    // Analizar JSON
-    JsonResult resultado = ParseJSON(json);
-        
     // Mostrar valores sin comillas
     printf("now: %s\n", quitar_comillas(GetJSONValue(json, "now()").value));
         
     // Liberar memoria
-    FreeJsonResult(&resultado);
     FreeString(json);
     
     return 0;
