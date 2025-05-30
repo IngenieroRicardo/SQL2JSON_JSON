@@ -50,10 +50,6 @@ Resultado JSON:
   {
     "mensajes": "hola",
     "usuarios": "yo"
-  },
-  {
-    "mensajes": "hola",
-    "usuarios": "mike"
   }
 ]
 
