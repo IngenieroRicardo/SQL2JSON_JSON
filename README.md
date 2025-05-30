@@ -53,7 +53,7 @@ Resultado JSON:
   }
 ]
 
-Total de elementos: 3
+Total de elementos: 2
 
 Elemento 1:
   mensajes: Hola
@@ -62,10 +62,6 @@ Elemento 1:
 Elemento 2:
   mensajes: hola
   usuarios: yo
-
-Elemento 3:
-  mensajes: hola
-  usuarios: mike
 
 ```
 
