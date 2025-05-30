@@ -24,6 +24,12 @@ typedef struct { const char *p; ptrdiff_t n; } _GoString_;
 #include <stdlib.h>
 #include <string.h>
 
+typedef struct {
+    char* json;
+    int is_error;    // 1 si es error, 0 si es éxito
+    int is_empty;    // 1 si está vacío, 0 si tiene datos
+} SQLResult;
+
 #line 1 "cgo-generated-wrapper"
 
 
@@ -81,12 +87,12 @@ extern "C" {
 #endif
 
 #ifdef _WIN32 
-extern __declspec(dllexport) char* SQLrun(char* conexion, char* query, char** args, int argCount);
-extern __declspec(dllexport) void FreeString(char* str);
+extern __declspec(dllexport) SQLResult SQLrun(char* conexion, char* query, char** args, int argCount);
+extern __declspec(dllexport) void FreeSQLResult(SQLResult* result);
 #else 
-extern char* SQLrun(char* conexion, char* query, char** args, int argCount);
-extern void FreeString(char* str);
-#endif
+extern SQLResult SQLrun(char* conexion, char* query, char** args, int argCount);
+extern void FreeSQLResult(SQLResult* result);
+#endif 
 
 #ifdef __cplusplus
 }

@@ -103,6 +103,18 @@ extern __declspec(dllexport) JsonArrayResult GetJSONKeys(char* jsonStr);
 extern __declspec(dllexport) void FreeJsonArrayResult(JsonArrayResult* result);
 extern __declspec(dllexport) JsonResult GetJSONValueByPath(char* jsonStr, char* path);
 extern __declspec(dllexport) JsonArrayResult GetArrayItems(char* jsonStr);
+extern __declspec(dllexport) JsonResult CreateEmptyJSON();
+extern __declspec(dllexport) JsonResult CreateEmptyArray();
+extern __declspec(dllexport) JsonResult AddStringToJSON(char* jsonStr, char* key, char* value);
+extern __declspec(dllexport) JsonResult AddNumberToJSON(char* jsonStr, char* key, GoFloat64 value);
+extern __declspec(dllexport) JsonResult AddBooleanToJSON(char* jsonStr, char* key, int value);
+extern __declspec(dllexport) JsonResult AddJSONToJSON(char* parentJson, char* key, char* childJson);
+extern __declspec(dllexport) JsonResult AddItemToArray(char* jsonArray, char* item);
+extern __declspec(dllexport) JsonResult RemoveKeyFromJSON(char* jsonStr, char* key);
+extern __declspec(dllexport) JsonResult RemoveItemFromArray(char* jsonArray, int index);
+extern __declspec(dllexport) JsonResult PrettyPrintJSON(char* jsonStr);
+extern __declspec(dllexport) JsonResult MergeJSON(char* json1, char* json2);
+extern __declspec(dllexport) int IsValidJSON(char* jsonStr);
 #else 
 extern JsonResult ParseJSON(char* jsonStr);
 extern JsonResult GetJSONValue(char* jsonStr, char* key);
@@ -113,6 +125,18 @@ extern JsonArrayResult GetJSONKeys(char* jsonStr);
 extern void FreeJsonArrayResult(JsonArrayResult* result);
 extern JsonResult GetJSONValueByPath(char* jsonStr, char* path);
 extern JsonArrayResult GetArrayItems(char* jsonStr);
+extern JsonResult CreateEmptyJSON();
+extern JsonResult CreateEmptyArray();
+extern JsonResult AddStringToJSON(char* jsonStr, char* key, char* value);
+extern JsonResult AddNumberToJSON(char* jsonStr, char* key, GoFloat64 value);
+extern JsonResult AddBooleanToJSON(char* jsonStr, char* key, int value);
+extern JsonResult AddJSONToJSON(char* parentJson, char* key, char* childJson);
+extern JsonResult AddItemToArray(char* jsonArray, char* item);
+extern JsonResult RemoveKeyFromJSON(char* jsonStr, char* key);
+extern JsonResult RemoveItemFromArray(char* jsonArray, int index);
+extern JsonResult PrettyPrintJSON(char* jsonStr);
+extern JsonResult MergeJSON(char* json1, char* json2);
+extern int IsValidJSON(char* jsonStr);
 #endif 
 
 #ifdef __cplusplus
