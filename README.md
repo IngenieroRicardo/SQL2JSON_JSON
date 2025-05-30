@@ -117,34 +117,30 @@ Elemento 1:
 #include "SQL2JSON.h"
 #include "JSON.h"
 
-// Función para eliminar comillas de una cadena (si las tiene)
-char* quitar_comillas(char* str) {
-    if (str == NULL){
-      return "";  
-    } 
-    size_t len = strlen(str);
-    if (len >= 2 && str[0] == '"' && str[len-1] == '"') {
-        str[len-1] = '\0';  // Eliminar comilla final
-        return str + 1;      // Saltar comilla inicial
-    }
-    return str;
-}
-
 int main() {
-    // Configuración de conexión
+    // Ejemplo de conexión y consulta
     char* conexion = "root:123456@tcp(127.0.0.1:3306)/test";
+    char* query = "SELECT now();";
     
-    // Consulta SQL con parámetros
-    char* query = "select now();";
-        
-    // Llamar a la función
-    char* json = SQLrun(conexion, query, 0, 0);
+    SQLResult resultado = SQLrun(conexion, query, NULL, 0);
+    
+    if (resultado.is_error) {
+        printf("Error: %s\n", resultado.json);
+        return 1;
+    } else if (resultado.is_empty) {
+        printf("Consulta ejecutada pero no retornó datos\n");
+        printf("JSON: %s\n", resultado.json); // Mostrará {"status":"OK"} o []
+        return 1;
+    }
+
+    JsonResult now = GetJSONValueByPath(resultado.json, "0.now()");
     
     // Mostrar valores sin comillas
-    printf("now: %s\n", quitar_comillas(GetJSONValue(json, "now()").value));
-        
+    printf("Now: %s\n", now.value);
+    
     // Liberar memoria
-    FreeString(json);
+    FreeJsonResult(&now);
+    FreeSQLResult(&resultado);
     
     return 0;
 }
