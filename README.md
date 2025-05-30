@@ -66,7 +66,7 @@ Elemento 2:
 ```
 
 
-### Consulta SELECT a MultiResult
+### Consulta MultiResult
 
 ```C
 ./main.bin "CALL chat.test();"
