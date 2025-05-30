@@ -3,17 +3,6 @@
 #include "SQL2JSON.h"
 #include "JSON.h"
 
-void imprimir_sin_comillas(char* str) {
-    if (str == NULL) return;
-    
-    size_t len = strlen(str);
-    if (len >= 2 && str[0] == '"' && str[len-1] == '"') {
-        printf("%.*s", (int)(len-2), str+1);
-    } else {
-        printf("%s", str);
-    }
-}
-
 void mostrar_elemento_json(char* json_str, int indice) {
     JsonResult parseado = ParseJSON(json_str);
     if (!parseado.is_valid) {
@@ -37,7 +26,7 @@ void mostrar_elemento_json(char* json_str, int indice) {
         JsonResult valor = GetJSONValue(json_str, clave);
         
         printf("  %s: ", clave);
-        imprimir_sin_comillas(valor.value);
+        printf("  %s: ", valor.value);
         printf("\n");
         
         FreeJsonResult(&valor);
@@ -119,19 +108,19 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    char* conexion = "root:123456@tcp(127.0.0.1:3306)/mysql";
+    char* conexion = "root:123456@tcp(192.100.1.210:3306)/mysql";
     char* query = argv[1];
     printf("Ejecutando consulta: %s\n\n", query);
     
-    char* json = SQLrun(conexion, query, NULL, 0);
-    if (json == NULL) {
+    SQLResult resultado = SQLrun(conexion, query, NULL, 0);
+    if (resultado.json == NULL) {
         printf("Error al ejecutar la consulta SQL\n");
         return 1;
     }
-    printf("Resultado JSON:\n%s\n\n", json);
+    printf("Resultado JSON:\n%s\n\n", resultado.json);
 
-    procesar_resultados_multiset(json);
+    procesar_resultados_multiset(resultado.json);
 
-    FreeString(json);
+    FreeSQLResult(&resultado);
     return 0;
 }
