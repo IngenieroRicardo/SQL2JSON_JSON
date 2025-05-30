@@ -160,7 +160,7 @@ int main() {
 
     JsonResult now = GetJSONValueByPath(resultado.json, "0.now()");
     
-    // Mostrar valores sin comillas
+    // Mostrar valor
     printf("Now: %s\n", now.value);
     
     // Liberar memoria
