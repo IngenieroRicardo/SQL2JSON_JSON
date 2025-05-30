@@ -108,7 +108,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    char* conexion = "root:123456@tcp(192.100.1.210:3306)/mysql";
+    char* conexion = "root:123456@tcp(127.0.0.1:3306)/mysql";
     char* query = argv[1];
     printf("Ejecutando consulta: %s\n\n", query);
     
