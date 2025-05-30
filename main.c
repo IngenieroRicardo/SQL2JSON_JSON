@@ -82,11 +82,10 @@ int main(int argc, char *argv[]) {
     if (argc < 2) {
         printf("Uso: %s \"consulta_sql\"\n", argv[0]);
         printf("Ejemplo: %s \"SELECT usuarios, mensajes FROM chat.mensajeria\"\n", argv[0]);
-        printf("Ejemplo: %s \"CALL chat.test()\"\n", argv[0]);
         return 1;
     }
 
-    char* conexion = "root:123456@tcp(192.100.1.210:3306)/mysql";
+    char* conexion = "root:123456@tcp(127.0.0.1:3306)/mysql";
     char* query = argv[1];
     printf("Ejecutando consulta: %s\n\n", query);
     
