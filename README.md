@@ -154,7 +154,7 @@ int main() {
         return 1;
     } else if (resultado.is_empty) {
         printf("Consulta ejecutada pero no retornó datos\n");
-        printf("JSON: %s\n", resultado.json); // Mostrará {"status":"OK"} o []
+        printf("JSON: %s\n", resultado.json); // Mostrará {"status":"OK"}
         return 1;
     }
 
