@@ -35,27 +35,10 @@ Elemento 1:
 ```
 
 
-### Consulta SELECT simple
-
-```C
-./main.bin "SELECT now()"
-Ejecutando consulta: SELECT now()
-
-Resultado JSON:
-{
-  "now()": "2025-05-28 16:22:53"
-}
-
-Elemento 1:
-  now(): 2025-05-28 16:22:53
-
-```
-
-
 ### Consulta SELECT a tabla
 
 ```C
-/main.bin "SELECT usuarios, mensajes FROM chat.mensajeria"
+./main.bin "SELECT usuarios, mensajes FROM chat.mensajeria"
 Ejecutando consulta: SELECT usuarios, mensajes FROM chat.mensajeria
 
 Resultado JSON:
