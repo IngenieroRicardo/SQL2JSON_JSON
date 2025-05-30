@@ -73,6 +73,56 @@ Elemento 3:
 
 ```
 
+
+### Consulta SELECT a MultiResult
+
+```C
+./main.bin "CALL chat.test();"
+Ejecutando consulta: CALL chat.test();
+
+Resultado JSON:
+[
+  [
+    {
+      "DATO": "TRUE",
+      "FECHA": "2025-05-30 11:08:31"
+    }
+  ],
+  [
+    {
+      "idmensajeria": "1",
+      "usuarios": "Ricardo",
+      "mensajes": "Hola"
+    },
+    {
+      "idmensajeria": "2",
+      "usuarios": "yo",
+      "mensajes": "hola"
+    }
+  ]
+]
+
+Se encontraron 2 conjuntos de resultados:
+
+=== Conjunto de Resultados 1 ===
+Elemento 1:
+  DATO: TRUE
+  FECHA: 2025-05-30 11:08:31
+
+
+=== Conjunto de Resultados 2 ===
+Elemento 1:
+  idmensajeria: 1
+  mensajes: Hola
+  usuarios: Ricardo
+
+Elemento 2:
+  mensajes: hola
+  usuarios: yo
+  idmensajeria: 2
+
+```
+
 ---
 
 ### Manejo de errores
